@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<packaging>pom</packaging>
+	<name>${project.artifactId}</name>
+	<description>This project provides business functionality as microservice.</description>
+
+	<artifactId>somifab</artifactId>
+
+	<parent>
+		<groupId>com.ces</groupId>
+		<artifactId>somifab-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>somifab-parent/pom.xml</relativePath>
+	</parent>
+
+	<modules>
+		<module>somifab-resource</module>
+		<module>somifab-parent</module>
+		<module>somifab-service</module>
+		<module>somifab-backend-api</module>
+		<module>somifab-backend-impl</module>
+		<module>somifab-war</module>
+		<module>somifab-model</module>
+	</modules>
+
+	<profiles>
+		<profile>
+			<id>minimal</id>
+			<activation>
+				<property>
+					<name>!minimal</name>
+				</property>
+			</activation>
+			<modules>
+				<module>somifab-resource</module>
+				<module>somifab-parent</module>
+				<module>somifab-service</module>
+				<module>somifab-backend-api</module>
+				<module>somifab-backend-impl</module>
+				<module>somifab-war</module>
+				<module>somifab-model</module>
+			</modules>
+		</profile>
+	</profiles>
+</project>
